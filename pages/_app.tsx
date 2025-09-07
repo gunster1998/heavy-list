@@ -8,16 +8,20 @@ import { fontSans, fontMono } from "@/config/fonts";
 import "@/styles/globals.css";
 import { FpsView } from "react-fps";
 
+import { QueryProvider } from "@/provider/queryProvider";
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
-    <HeroUIProvider navigate={router.push}>
-      <NextThemesProvider attribute="class" defaultTheme="light">
-        <Component {...pageProps} />
-        <FpsView />
-      </NextThemesProvider>
-    </HeroUIProvider>
+    <QueryProvider>
+      <HeroUIProvider navigate={router.push}>
+        <NextThemesProvider attribute="class" defaultTheme="light">
+          <Component {...pageProps} />
+          <FpsView />
+        </NextThemesProvider>
+      </HeroUIProvider>
+    </QueryProvider>
   );
 }
 

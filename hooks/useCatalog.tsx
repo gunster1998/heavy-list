@@ -1,35 +1,17 @@
 import { CatalogItem } from "@/components/CatalogItem";
 import { useEffect, useState } from "react";
-
+import { useQuery } from "@tanstack/react-query";
+import { ProjectApi } from "@/api/projectApi";
 export const useCatalog = () => {
-  const [catalog, setCatalog] = useState<CatalogItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const { data, isSuccess, isError, isPending } = useQuery<CatalogItem[]>({
+    queryKey: ["catalog"],
+    queryFn: ProjectApi.getCatalog,
+    staleTime: 1000 * 60 * 5,
+    gcTime: 24 * 60 * 60 * 1000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
 
-  const fetchCatalog = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-
-      const response = await fetch("/api/getCatalog");
-
-      if (!response.ok) {
-        throw new Error(`Ошибка HTTP: ${response.status}`);
-      }
-
-      const data: CatalogItem[] = await response.json();
-      setCatalog(data);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Неизвестная ошибка");
-      console.error("Ошибка загрузки каталога:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchCatalog();
-  }, []);
-
-  return { catalog, loading, error, refetch: fetchCatalog };
+  return { catalog: data ?? [], isPending, isError };
 };

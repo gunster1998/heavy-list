@@ -1,14 +1,14 @@
-# Next.js & HeroUI Template
+# Шаблон Next.js & HeroUI
 
-This is a template for creating applications using Next.js 14 (pages directory) and HeroUI (v2).
+Это шаблон для создания приложений с использованием Next.js 14 (директория pages) и HeroUI (v2).
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/next-pages-template)
+[Попробовать на CodeSandbox](https://githubbox.com/heroui-inc/next-pages-template)
 
-> Note: Since Next.js 14, the pages router is recommend migrating to the [new App Router](https://nextjs.org/docs/app) to leverage React's latest features
+> Примечание: С версии Next.js 14 рекомендуется перейти на [новый App Router](https://nextjs.org/docs/app), чтобы использовать последние возможности React.
 >
-> Read more: [Pages Router](https://nextjs.org/docs/pages)
+> Подробнее: [Pages Router](https://nextjs.org/docs/pages)
 
-## Technologies Used
+## Используемые технологии
 
 - [Next.js 14](https://nextjs.org/docs/getting-started)
 - [HeroUI](https://heroui.com)
@@ -18,38 +18,38 @@ This is a template for creating applications using Next.js 14 (pages directory) 
 - [Framer Motion](https://www.framer.com/motion)
 - [next-themes](https://github.com/pacocoursey/next-themes)
 
-## How to Use
+## Как использовать
 
-To create a new project based on this template using `create-next-app`, run the following command:
+Чтобы создать новый проект на основе этого шаблона с помощью create-next-app, выполните следующую команду:
 
 ```bash
 npx create-next-app -e https://github.com/heroui-inc/next-pages-template
 ```
 
-### Install dependencies
+### Установка зависимостей
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+Вы можете использовать один из менеджеров пакетов: npm, yarn, pnpm, bun. Пример с npm:
 
 ```bash
 npm install
 ```
 
-### Run the development server
+### Запуск сервера разработки
 
 ```bash
 npm run dev
 ```
 
-### Setup pnpm (optional)
+### Настройка pnpm (опционально)
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+Если вы используете pnpm, добавьте следующий код в файл `.npmrc`:
 
 ```bash
 public-hoist-pattern[]=*@heroui/*
 ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+После изменения файла `.npmrc` необходимо снова выполнить `pnpm install`, чтобы зависимости установились корректно.
 
-## License
+## Лицензия
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-pages-template/blob/main/LICENSE).
+Лицензировано под [лицензией MIT](https://github.com/heroui-inc/next-pages-template/blob/main/LICENSE).

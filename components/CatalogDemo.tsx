@@ -1,20 +1,21 @@
 "use client";
 
-import { Catalog } from "@/components/Catalog";
+import { CatalogList } from "@/components/CatalogList";
 import { CatalogItem } from "@/components/CatalogItem";
+
 import { useCatalog } from "@/hooks/useCatalog";
 import { useState } from "react";
 
 export const CatalogDemo: React.FC = () => {
   const [cart, setCart] = useState<CatalogItem[]>([]);
 
-  const { catalog, loading, error, refetch } = useCatalog();
+  const { catalog, isPending, isError } = useCatalog();
 
   const addToCart = (item: CatalogItem): void => {
     setCart((prev) => [...prev, item]);
   };
 
-  if (loading) return <div>Загрузка каталога...</div>;
+  if (isPending) return <div>Загрузка каталога...</div>;
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
@@ -22,7 +23,7 @@ export const CatalogDemo: React.FC = () => {
       <div style={{ marginBottom: "20px" }}>
         <span>Товаров в корзине: {cart.length}</span>
       </div>
-      <Catalog items={catalog} onAddToCart={addToCart} />
+      <CatalogList items={catalog} onAddToCart={addToCart} />
     </div>
   );
 };
