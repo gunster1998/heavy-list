@@ -16,7 +16,7 @@ export const CatalogList: React.FC<CatalogProps> = ({ items, onAddToCart }) => {
     count: items.length,
     getScrollElement: () => parentRef.current,
     estimateSize: () => 400,
-    overscan: 10,
+    overscan: 5,
     measureElement: (el) => el.getBoundingClientRect().height,
   });
 
